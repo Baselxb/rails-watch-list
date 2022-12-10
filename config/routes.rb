@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # Read all
-  get    "lists",          to: "lists#index"
-  # Create
-  get    "lists/new",      to: "lists#new"
-  post   "lists",          to: "lists#create"
-  # Read one - The `show` 
-  get    "lists/:id",      to: "lists#show"
+  root to: "lists#index"
+  resources :lists, only: [ :index, :show, :new, :create, :destroy ] do
+    resources :bookmarks, only: [ :new, :create ]
+  end
+    resources :bookmarks, only: [ :destroy ]
 end

@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Create your list</h1>
+</div>
+
+
+<div class="container">
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name, placeholder: 'Add a list' %>
+    <%= f.submit "Create" %>
+  <% end %>
+</div>
+
+<div class="container">
+<%= link_to "back_to_overview", root_path %>
+</div>
